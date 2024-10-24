@@ -32,6 +32,7 @@ func main() {
 		fmt.Println(err.Error())
 	}
 
+	/* we need to check error and handle it */
 	err = payment(5)
 	if err != nil {
 		switch err {

@@ -1,9 +1,11 @@
 package main
 
-// type person struct {
-// 	name string
-// 	age  int
-// }
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
 
 // type employee1 struct {
 // 	p        person
@@ -30,13 +32,13 @@ package main
 // }
 
 func main() {
-	// p := person{
-	// 	name: "neng",
-	// 	age:  100,
-	// }
+	p := person{
+		name: "neng",
+		age:  100,
+	}
 
-	// fmt.Printf("person: %+v\n", p)
-	// fmt.Printf("person name: %s\n", p.name)
+	fmt.Printf("person: %+v\n", p)
+	fmt.Printf("person name: %s\n", p.name)
 
 	// p := person{
 	// 	name: "neng",
@@ -152,13 +154,13 @@ func main() {
 	// fmt.Printf("%d", a)
 }
 
-// func (p person) description() {
-// 	fmt.Printf("This is me, name: %s, age: %d\n", p.name, p.age)
-// }
+func (p person) description() {
+	fmt.Printf("This is me, name: %s, age: %d\n", p.name, p.age)
+}
 
-// func (p *person) changeName() {
-// 	p.name = "Chonlatee"
-// }
+func (p *person) changeName() {
+	p.name = "Chonlatee"
+}
 
 // func (e employee1) description() {
 

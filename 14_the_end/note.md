@@ -1,0 +1,2 @@
+- Golang not silver bullet
+- Right tool for right job

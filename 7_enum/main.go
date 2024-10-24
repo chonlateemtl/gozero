@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+/* enum in go it more like constant */
+
 // Define a custom type for the enum
 type Day int
 

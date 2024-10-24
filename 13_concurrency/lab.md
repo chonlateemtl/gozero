@@ -1,0 +1,6 @@
+- create simple worker command line program
+- user can input job name, job id, process time in second unit (eg 1, 2, 3),
+- user can input how many worker they want to process job
+- user can start worker when input finish
+- user can see on on screen about what job are processing
+- after all job done need to save job log info to file
