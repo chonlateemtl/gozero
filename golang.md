@@ -1,9 +1,11 @@
-# History of golang
+# Golang 101
+
+## History of golang
 
     Go was designed at Google in 2007 to improve programming productivity in an era of multicore, networked machines and large codebases.
     The designers wanted to address criticisms of other languages in use at Google, but keep their useful characteristics
 
-# Why golang
+## Why golang
 
     The goals of the Go project were to eliminate the slowness and clumsiness of software development at Google, and thereby to make the process more productive and scalable. The language was designed by and for people who write—and read and debug and maintain—large software systems.
 
@@ -11,7 +13,7 @@
 
     Ref: https://go.dev/talks/2012/splash.article#TOC_3.
 
-# Why golang ( IMHO )
+## Why golang ( IMHO )
 
     - easy to learn
     - C - Style
@@ -23,9 +25,8 @@
     - TTD ( Table test development )
     - go tool
     - error handler
-    
 
-# Go for java developer
+## Go for java developer
 
     No classes
     No constructors
@@ -33,3 +34,4 @@
     No final
     No exceptions
     No annotations
+    No try catch

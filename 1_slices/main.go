@@ -12,7 +12,7 @@ func main() {
 	// a[0] = 100
 	// fmt.Println("emp:", a)
 
-	/* initialize array with value */
+	/* initialize array with value ( compiler wil check size for you ) */
 	// var a = [...]int{1, 2, 3, 4, 5}
 	// fmt.Println("emp:", a)
 
@@ -118,18 +118,24 @@ func main() {
 	/* --------------------- end copy slice -------------------*/
 
 	/* ----------------- start modify slice topic ----------------*/
-	// s := make([]string, 3)
-	// s[0] = "a"
-	// s[1] = "b"
-	// s[2] = "c"
+	// s := make([]string, 0, 6)
+	// s = append(s, "a")
+	// s = append(s, "b")
+	// s = append(s, "c")
 
-	// fmt.Println("slice s before call modify:", s, "len:", len(s), "cap:", cap(s))
+	s := make([]string, 3)
+	s[0] = "a"
+	s[1] = "b"
+	s[2] = "c"
 
-	// modifySlice(s)
+	fmt.Println("slice s before call modify:", s, "len:", len(s), "cap:", cap(s))
+
+	fmt.Printf("address before call modifySlice append %p\n", s)
+	modifySlice(s)
+
+	fmt.Println("slice s after call modify:", s, "len:", len(s), "cap:", cap(s))
 
 	/* change slice by return value from func */
-	// fmt.Println("slice s after call modify:", s, "len:", len(s), "cap:", cap(s))
-
 	// s := make([]string, 3)
 	// s[0] = "a"
 	// s[1] = "b"
@@ -175,11 +181,22 @@ func main() {
 	/*
 		in Go, a slice itself is a reference type, meaning it contains a pointer to the underlying array.
 		So when you pass a slice to a function, you're already passing a reference to the data, not a copy
+		same with channel, maps
+
 	*/
 }
 
 func modifySlice(s []string) {
+	s[0] = "change first value"
+
+	// fmt.Printf("before append %p\n", s)
+
 	s = append(s, "new value")
+
+	// fmt.Printf("after append %p\n", s)
+
+	// s = append(s, "new value")
+	// s[0] = "change first value"
 	fmt.Println("slice s in func:", s, "len:", len(s), "cap:", cap(s))
 }
 

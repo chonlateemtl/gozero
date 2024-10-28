@@ -31,7 +31,7 @@ func main() {
 	*/
 
 	// mutex  use when you want to prevent mutual section - ( lock behavior, use with caution for performance issue)
-	// channel use when you want to communicate between go routine - ( use with caution, IMHO: complex to read, debug for beginner).
+	// channel use when you want to communicate between goroutine - ( use with caution, IMHO: complex to read and  debug for beginner).
 
 	/* -- check number of cpu --*/
 	// fmt.Printf("%d\n", runtime.NumCPU())
