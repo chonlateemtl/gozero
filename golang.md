@@ -15,16 +15,17 @@
 
 ## Why golang ( IMHO )
 
-    - easy to learn
+    - easy to learn ( but hard to master )
     - C - Style
-    - Good for Web backend service
-    - Concurrency
-    - Fast enough
-    - No OOP
-    - NO FP ( before )
+    - Good for backend service
+    - Concurrency ( easy to write. but concurrency it still hard topic for me)
+    - Fast enough ( if you don't want GC use rust instead.)
+    - No OOP ( but still have some ability of OOP )
+    - NO FP ( before but not sure in the future)
     - TTD ( Table test development )
     - go tool
-    - error handler
+    - error handler ( new thing to me when i learn but i think easy to handle error thing)
+    - Boring thing, I mean software engineer should be boring thing. ( when deploy, when release, when upgrade version and more)
 
 ## Go for java developer
 

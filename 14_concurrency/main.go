@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -35,6 +36,36 @@ func main() {
 
 	/* -- check number of cpu --*/
 	// fmt.Printf("%d\n", runtime.NumCPU())
+
+	/* sync wait group */
+
+	/* with out go routine */
+	// for _, v := range []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"} {
+	// 	fmt.Printf("val is: %s\n", v)
+	// 	time.Sleep(time.Millisecond * 500)
+	// }
+
+	/* go routine without wait group */
+	// for _, v := range []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"} {
+	// 	go func() {
+	// 		fmt.Printf("val is: %s\n", v)
+	// 		time.Sleep(time.Millisecond * 500)
+	// 	}()
+
+	// }
+
+	/* goroutine with sync wait group */
+	var wg sync.WaitGroup
+
+	wg.Add(10)
+	for _, v := range []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"} {
+		go func() {
+			fmt.Printf("val is: %s\n", v)
+			time.Sleep(time.Millisecond * 500)
+			wg.Done()
+		}()
+	}
+	wg.Wait()
 
 	/*--- worker pool ---*/
 	// const numJobs = 10

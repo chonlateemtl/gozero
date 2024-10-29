@@ -80,6 +80,7 @@ func main() {
 
 	// fmt.Println("emp:", b, "len:", len(b), "cap:", cap(b))
 
+	/* if destition slice have cap less than source slice */
 	// var s []string
 	// s = append(s, "a")
 	// s = append(s, "b")
@@ -90,6 +91,7 @@ func main() {
 
 	// fmt.Println("emp:", b, "len:", len(b), "cap:", cap(b))
 
+	/* if destition slice have cap less than source slice */
 	// var s []string
 	// s = append(s, "a")
 	// s = append(s, "b")
@@ -100,6 +102,7 @@ func main() {
 
 	// fmt.Println("emp:", b, "len:", len(b), "cap:", cap(b))
 
+	/* if destition slice have cap less than source slice but have cap*/
 	// var s []string
 	// s = append(s, "a")
 	// s = append(s, "b")
@@ -115,25 +118,79 @@ func main() {
 	// fmt.Println("slice s:", s, "len:", len(s), "cap:", cap(s))
 	// fmt.Println("slice b:", b, "len:", len(b), "cap:", cap(b))
 
-	/* --------------------- end copy slice -------------------*/
-
-	/* ----------------- start modify slice topic ----------------*/
+	/* take carefully when append with len and cap*/
 	// s := make([]string, 0, 6)
 	// s = append(s, "a")
 	// s = append(s, "b")
-	// s = append(s, "c")
 
-	s := make([]string, 3)
-	s[0] = "a"
-	s[1] = "b"
-	s[2] = "c"
+	// fmt.Println("slice s:", s, "len:", len(s), "cap:", cap(s))
 
-	fmt.Println("slice s before call modify:", s, "len:", len(s), "cap:", cap(s))
+	/* take carefully when append with len and cap is the same*/
+	s := make([]string, 6)
+	s = append(s, "a")
+	s = append(s, "b")
 
-	fmt.Printf("address before call modifySlice append %p\n", s)
-	modifySlice(s)
+	fmt.Println("slice s:", s, "len:", len(s), "cap:", cap(s))
 
-	fmt.Println("slice s after call modify:", s, "len:", len(s), "cap:", cap(s))
+	/* --------------------- end copy slice -------------------*/
+
+	/* ----------------- start modify slice topic ----------------*/
+	/* if cap less than len */
+
+	/* modify slice with index 0*/
+	// s := make([]string, 3)
+	// s[0] = "a"
+	// s[1] = "b"
+	// s[2] = "c"
+
+	// fmt.Println("slice s before call modify:", s, "len:", len(s), "cap:", cap(s))
+
+	// modifySlice(s)
+
+	// fmt.Println("slice s after call modify:", s, "len:", len(s), "cap:", cap(s))
+
+	/* modify slice with append before index 0 not modified */
+	// s := make([]string, 3)
+	// s[0] = "a"
+	// s[1] = "b"
+	// s[2] = "c"
+
+	// fmt.Println("slice s before call modify:", s, "len:", len(s), "cap:", cap(s))
+
+	// fmt.Printf("address slice s before call  %p\n", s)
+
+	// modifySliceWithAppendBefore(s)
+
+	// fmt.Printf("address slice s after call  %p\n", s)
+
+	// fmt.Println("slice s after call modify:", s, "len:", len(s), "cap:", cap(s))
+
+	/* modify slice with append after index 0 is modified */
+	// s := make([]string, 3)
+	// s[0] = "a"
+	// s[1] = "b"
+	// s[2] = "c"
+
+	// fmt.Println("slice s before call modify:", s, "len:", len(s), "cap:", cap(s))
+	// fmt.Printf("address slice s before call %p\n", s)
+
+	// modifySliceWithAppendAfter(s)
+
+	// fmt.Printf("address slice s after call %p\n", s)
+
+	// fmt.Println("slice s after call modify:", s, "len:", len(s), "cap:", cap(s))
+
+	// /*modify Slice with append  with cap more than len with edit index*/
+	// s := make([]string, 6)
+	// s[0] = "a"
+	// s[1] = "b"
+	// s[2] = "c"
+
+	// fmt.Println("slice s before call modify:", s, "len:", len(s), "cap:", cap(s))
+
+	// modifySliceWithEditIndex(s)
+
+	// fmt.Println("slice s after call modify:", s, "len:", len(s), "cap:", cap(s))
 
 	/* change slice by return value from func */
 	// s := make([]string, 3)
@@ -187,16 +244,31 @@ func main() {
 }
 
 func modifySlice(s []string) {
-	s[0] = "change first value"
+	s[0] = "z"
+	fmt.Println("slice s in func:", s, "len:", len(s), "cap:", cap(s))
+}
 
-	// fmt.Printf("before append %p\n", s)
+func modifySliceWithAppendBefore(s []string) {
+	fmt.Printf("address slice s before append %p\n", s)
+	s = append(s, "x")
+	fmt.Printf("address slice s after append %p\n", s)
+	s[0] = "z"
+	fmt.Printf("address slice s after set index 0 %p\n", s)
+	fmt.Println("slice s in func:", s, "len:", len(s), "cap:", cap(s))
+}
 
-	s = append(s, "new value")
+func modifySliceWithAppendAfter(s []string) {
+	fmt.Printf("address slice s before set index %p\n", s)
+	s[0] = "z"
+	fmt.Printf("address slice s before append %p\n", s)
+	s = append(s, "x")
+	fmt.Printf("address slice s after append %p\n", s)
+	fmt.Println("slice s in func:", s, "len:", len(s), "cap:", cap(s))
+}
 
-	// fmt.Printf("after append %p\n", s)
-
-	// s = append(s, "new value")
-	// s[0] = "change first value"
+func modifySliceWithEditIndex(s []string) {
+	s[0] = "z"
+	s[3] = "x"
 	fmt.Println("slice s in func:", s, "len:", len(s), "cap:", cap(s))
 }
 
